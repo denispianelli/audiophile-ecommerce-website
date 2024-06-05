@@ -13,10 +13,10 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 22 65% 57%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
+    --secondary: 21 94% 75%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
@@ -30,6 +30,9 @@
 
     --success: 123 81% 31%;
     --success-foreground: 210 40% 98%;
+
+    --grey: 0 0% 95%;
+    --light-grey: 0 0% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
@@ -78,5 +81,35 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .h1 {
+    @apply text-[56px] font-bold uppercase leading-[58px] tracking-[2px];
+  }
+  .h2 {
+    @apply text-[40px] font-bold uppercase leading-[44px] tracking-[1.5px];
+  }
+  .h3 {
+    @apply text-[32px] font-bold uppercase leading-[36px] tracking-[1.15px];
+  }
+  .h4 {
+    @apply text-[28px] font-bold uppercase leading-[38px] tracking-[2px];
+  }
+  .h5 {
+    @apply text-[24px] font-bold uppercase leading-[33px] tracking-[1.7px];
+  }
+  .h6 {
+    @apply text-[18px] font-bold uppercase leading-[24px] tracking-[1.3px];
+  }
+  .text-overline {
+    @apply text-sm uppercase leading-[19px] tracking-[10px] text-primary;
+  }
+  .subtitle {
+    @apply text-[13px] font-bold uppercase leading-[25px] tracking-[1px] text-primary;
+  }
+  .text-body {
+    @apply text-[15px] font-medium leading-[25px];
   }
 }
