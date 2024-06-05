@@ -15,6 +15,8 @@ import { ModeToggleButton } from './mode-toggle-button';
 import { UserMenu } from './user-menu';
 import { Separator } from './ui/separator';
 import { ModeToggleSwitch } from './mode-toggle-switch';
+import Image from 'next/image';
+import { ButtonIcon } from './ui/button-icon';
 
 export async function Header() {
   const session = await auth();
@@ -175,7 +177,7 @@ export async function Header() {
         ) : (
           <>
             <Button asChild variant="outline">
-              <Link className="hidden md:block" href="/login">
+              <Link className="hidden md:inline-flex" href="/login">
                 Login
               </Link>
             </Button>{' '}
