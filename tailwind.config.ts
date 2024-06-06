@@ -12,13 +12,6 @@ const config = {
   ],
   prefix: '',
   theme: {
-    screens: {
-      sm: '640px',
-      md: '920px',
-      lg: '1080px',
-      xl: '1280px',
-      '2xl': '1536px',
-    },
     container: {
       center: true,
       padding: '2rem',

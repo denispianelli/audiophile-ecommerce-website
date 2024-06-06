@@ -1,47 +1,39 @@
-'use client';
-
-import { Alert, AlertTitle } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
-import clsx from 'clsx';
-import { Check, Copy, Terminal } from 'lucide-react';
-import { useState } from 'react';
+import Link from 'next/link';
 
 export default function Home() {
-  const [copied, setCopied] = useState(false);
-
-  const text = `npx create-next-app -e https://github.com/denispianelli/nextjs-tailwind-prisma-nextauth-template my-app`;
-
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(text);
-    setCopied(true);
-    setTimeout(() => {
-      setCopied(false);
-    }, 2000);
-  };
   return (
-    <main className="flex h-[calc(100vh-64px)] flex-col items-center justify-center bg-muted/40">
-      <h1 className="h1">Welcome to your new app!</h1>
-      <Alert className="mt-6  w-auto">
-        <Terminal className="h-4 w-4" />
-        <AlertTitle className="text-sm">
-          {' '}
-          ~ npx create-next-app -e
-          https://github.com/denispianelli/nextjs-tailwind-prisma-nextauth-template
-          my-app
-          <Button variant="default" onClick={copyToClipboard} className="ml-4">
-            <Copy
-              className={clsx('h-4 w-4 ease-in-out', {
-                hidden: copied,
-              })}
+    <main className="flex flex-col items-center justify-center bg-muted/40">
+      <section className="w-full">
+        <div className="relative">
+          <picture className="block h-full w-full">
+            <source
+              srcSet="/assets/home/desktop/image-hero.jpg"
+              media="(min-width: 1440px)"
             />
-            <Check
-              className={clsx('h-4 w-4 ease-in-out', {
-                hidden: !copied,
-              })}
+            <source
+              srcSet="/assets/home/tablet/image-header.jpg"
+              media="(min-width: 768px)"
             />
-          </Button>
-        </AlertTitle>
-      </Alert>
+            <img
+              className="h-full w-full"
+              src="/assets/home/mobile/image-header.jpg"
+              alt="header"
+            />
+          </picture>
+          <div className="absolute bottom-[112px] left-1/2 w-[328px] -translate-x-1/2  text-center">
+            <p className="text-overline mb-4 text-white/50">new product</p>
+            <h1 className="h3 mb-6 text-white">XX99 Mark II Headphones</h1>
+            <p className="text-body mb-7 text-white/75">
+              Experience natural, lifelike audio and exceptional build quality
+              made for the passionate music enthusiast.
+            </p>
+            <Button asChild>
+              <Link href={'#'}>see product</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
