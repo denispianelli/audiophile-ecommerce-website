@@ -18,10 +18,10 @@ export async function Header() {
   const session = await auth();
 
   return (
-    <header className="fixed left-1/2 top-0 z-50 grid h-[90px] w-screen -translate-x-1/2 transform bg-transparent  md:px-10 lg:h-[97px]">
+    <header className="supports-[backdrop-filter] fixed top-0 z-50 grid h-[90px] w-screen transform bg-black/10 backdrop-blur md:px-10 lg:h-[97px]">
       <div className="grid w-full grid-cols-[20px,auto,20px] items-center justify-items-center border-b border-b-[#979797]/20 px-6 md:px-0 lg:flex lg:justify-between xl:mx-auto xl:w-[1110px]">
         <nav className="hidden flex-col gap-6 text-lg font-medium md:flex-row md:items-center md:gap-5 md:text-sm lg:order-2 lg:flex lg:gap-6 lg:text-[13px] lg:font-bold lg:uppercase lg:tracking-[2px] lg:text-white">
-          <Link href="#" className="transition-colors hover:text-primary">
+          <Link href="/" className="transition-colors hover:text-primary">
             home
           </Link>
           <Link href="#" className="transition-colors hover:text-primary">
