@@ -8,6 +8,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { NextSSRPlugin } from '@uploadthing/react/next-ssr-plugin';
 import { extractRouterConfig } from 'uploadthing/server';
 import { ourFileRouter } from './api/uploadthing/core';
+import Footer from '@/components/page-footer';
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -36,13 +37,12 @@ export default function RootLayout({
         <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem={true}
           storageKey="theme"
           disableTransitionOnChange
         >
           <Header />
           {children}
+          <Footer />
           <Toaster />
         </ThemeProvider>
       </body>
