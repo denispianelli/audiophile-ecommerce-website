@@ -63,6 +63,7 @@ const config = {
         },
         grey: 'hsl(var(--grey))',
         'light-grey': 'hsl(var(--light-grey))',
+        footer: 'hsl(var(--footer))',
       },
       borderRadius: {
         lg: 'var(--radius)',
