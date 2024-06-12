@@ -1,9 +1,10 @@
+import Link from 'next/link';
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
 
 export default function FeaturedProducts() {
   return (
-    <section className="w-full px-6 md:px-10">
+    <section className="w-full">
       <Card className="relative mb-[24px] flex h-[600px] flex-col items-center justify-between overflow-hidden bg-primary px-6 py-[55px] md:mb-[32px] md:h-[720px] md:py-[64px] xl:mx-auto xl:mb-[48px] xl:h-[560px] xl:w-[1110px] xl:flex-row xl:justify-end xl:px-[94px]">
         <div className="z-10 mx-auto mb-[32px] h-[207px] w-[173px] md:h-[237px] md:w-[198px] xl:absolute xl:-bottom-11 xl:left-[130px] xl:h-[493px] xl:w-[410px] ">
           <picture className="block h-full w-full">
@@ -34,10 +35,11 @@ export default function FeaturedProducts() {
             truly remarkable sound.
           </p>
           <Button
+            asChild
             variant={'outline'}
             className="z-10 border-none bg-black text-white hover:bg-[#4C4C4C]"
           >
-            see product
+            <Link href={'/speakers/zx9-speaker'}>see product</Link>
           </Button>
         </div>
       </Card>
@@ -64,11 +66,13 @@ export default function FeaturedProducts() {
           <h3 className=" mb-[32px] text-[28px] font-bold uppercase tracking-[2px]">
             zx7 speaker
           </h3>
-          <Button variant={'outline'}>see product</Button>
+          <Button asChild variant={'outline'}>
+            <Link href={'/speakers/zx7-speaker'}>see product</Link>
+          </Button>
         </div>
       </Card>
 
-      <div className="mb-[120px] grid grid-rows-2 gap-6 md:mb-[96px] md:grid-cols-2 md:grid-rows-1 xl:mx-auto xl:mb-[200px] xl:w-[1110px]">
+      <div className="grid grid-rows-2 gap-6 md:grid-cols-2 md:grid-rows-1 xl:mx-auto xl:w-[1110px]">
         <div className="z-10 mx-auto">
           <picture className="block h-full w-full">
             <source
@@ -90,7 +94,9 @@ export default function FeaturedProducts() {
           <h3 className="mb-[32px] text-[28px] font-bold uppercase tracking-[2px]">
             yx1 earphones
           </h3>
-          <Button variant={'outline'}>see product</Button>
+          <Button asChild variant={'outline'}>
+            <Link href={'/earphones/yx1-earphones'}>see product</Link>
+          </Button>
         </Card>
       </div>
     </section>
