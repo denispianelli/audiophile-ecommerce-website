@@ -43,3 +43,95 @@ model User {
 
   @@map("users")
 }
+
+model Product {
+  id              String                    @id @default(cuid())
+  slug            String                    @unique
+  name            String
+  image           Image?                    @relation(fields: [imageId], references: [id])
+  category        String
+  categoryImage   CategoryImage?            @relation(fields: [categoryImageId], references: [id])
+  new             Boolean
+  price           Int
+  description     String
+  features        String
+  imageId         String?                   @map("image_id")
+  categoryImageId String?                   @map("category_image_id")
+  GalleryImage    GalleryImage[]
+  item_includes   ItemsIncludeOnProduct[]
+  other_products  OtherProductsOnProducts[]
+
+  @@map("products")
+}
+
+model Image {
+  id           String         @id @default(cuid())
+  mobile       String
+  tablet       String
+  desktop      String
+  Product      Product[]
+  OtherProduct OtherProduct[]
+
+  @@map("images")
+}
+
+model CategoryImage {
+  id      String    @id @default(cuid())
+  mobile  String
+  tablet  String
+  desktop String
+  Product Product[]
+
+  @@map("category_images")
+}
+
+model GalleryImage {
+  id        String   @id @default(cuid())
+  mobile    String
+  tablet    String
+  desktop   String
+  product   Product? @relation(fields: [productId], references: [id])
+  productId String?  @map("product_id")
+
+  @@map("gallery_images")
+}
+
+model ItemInclude {
+  id       String                  @id @default(cuid())
+  quantity Int
+  item     String
+  products ItemsIncludeOnProduct[]
+
+  @@map("item_includes")
+}
+
+model OtherProduct {
+  id       String                    @id @default(cuid())
+  slug     String
+  name     String
+  image    Image?                    @relation(fields: [imageId], references: [id])
+  imageId  String?                   @map("image_id")
+  products OtherProductsOnProducts[]
+
+  @@map("other_products")
+}
+
+model ItemsIncludeOnProduct {
+  product       Product     @relation(fields: [productId], references: [id])
+  productId     String      @map("product_id")
+  item_includes ItemInclude @relation(fields: [itemIncludeId], references: [id])
+  itemIncludeId String      @map("item_include_id")
+
+  @@id([productId, itemIncludeId])
+  @@map("items_include_on_products")
+}
+
+model OtherProductsOnProducts {
+  product        Product      @relation(fields: [productId], references: [id])
+  other_product  OtherProduct @relation(fields: [otherProductId], references: [id])
+  productId      String       @map("product_id")
+  otherProductId String       @map("other_product_id")
+
+  @@id([productId, otherProductId])
+  @@map("other_products_on_products")
+}
