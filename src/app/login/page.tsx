@@ -10,8 +10,11 @@ export default async function Page() {
   }
 
   return (
-    <main className="h-[calc(100vh-64px)]">
-      <LoginForm />
-    </main>
+    <>
+      <div className="h-[90px] w-full bg-black md:h-[97px]"></div>
+      <main>
+        <LoginForm />
+      </main>
+    </>
   );
 }
