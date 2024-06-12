@@ -17,15 +17,16 @@ import Link from 'next/link';
 export async function UserMenu() {
   const user = await getUser();
 
+  if (!user) {
+    return null;
+  }
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="secondary" size="icon" className="rounded-full">
+        <Button variant="ghost" size="icon" className="rounded-full">
           <Avatar>
-            <AvatarImage
-              src={user?.image ?? undefined}
-              alt={user?.name ?? undefined}
-            />
+            <AvatarImage src={user.image!} alt={user.name!} />
             <AvatarFallback>
               {' '}
               <CircleUser className="h-5 w-5" />
