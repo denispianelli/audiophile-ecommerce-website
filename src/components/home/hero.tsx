@@ -3,7 +3,7 @@ import { Button } from '../ui/button';
 
 export default function Hero() {
   return (
-    <section className="w-full">
+    <section className="mb-[40px] w-full md:mb-[96px] xl:mb-[148px]">
       <div className="relative">
         <picture className="block h-full w-full">
           <source
@@ -30,7 +30,9 @@ export default function Hero() {
             made for the passionate music enthusiast.
           </p>
           <Button asChild>
-            <Link href={'#'}>see product</Link>
+            <Link href={'/headphones/xx99-mark-two-headphones'}>
+              see product
+            </Link>
           </Button>
         </div>
       </div>
