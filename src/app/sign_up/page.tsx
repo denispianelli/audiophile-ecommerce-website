@@ -10,8 +10,11 @@ export default async function Page() {
   }
 
   return (
-    <main className="flex h-[calc(100vh-64px)] items-center justify-center bg-muted/40">
-      <SignUpForm />
-    </main>
+    <>
+      <div className="h-[90px] w-full bg-black md:h-[97px]"></div>
+      <main className="flex h-[calc(100vh-64px)] items-center justify-center bg-muted/40">
+        <SignUpForm />
+      </main>
+    </>
   );
 }
