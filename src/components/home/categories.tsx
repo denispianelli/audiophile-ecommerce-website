@@ -6,12 +6,12 @@ import Link from 'next/link';
 export default function Categories() {
   const categories = ['headphones', 'speakers', 'earphones'];
   return (
-    <section className="w-full px-6 pb-[52px] pt-[92px] md:grid md:grid-cols-3 md:gap-[10px] md:px-10 md:pb-[28px] md:pt-[148px] xl:w-[1110px] xl:gap-[30px] xl:px-0 xl:pb-[100px] xl:pt-[200px]">
+    <section className="mt-[52px] grid w-full gap-[68px] md:grid-cols-3 md:gap-[10px] xl:mx-auto xl:w-[1110px] xl:gap-[30px]">
       {categories.map((category) => (
         <Link key={category} href={`/${category}`}>
           <Card
             key={category}
-            className="group relative mb-[68px] h-[165px] md:h-[204px]"
+            className="group relative h-[165px] md:h-[204px]"
           >
             <CardContent className="mt-[88px] text-center">
               <div className="absolute left-1/2 top-0 z-10 mx-auto h-[120px] w-[100px] -translate-x-1/2 -translate-y-[35%] xl:h-[160px] xl:w-[140px]">
@@ -19,6 +19,7 @@ export default function Categories() {
                   src={`/assets/shared/desktop/image-category-thumbnail-${category}.png`}
                   alt={category}
                   fill
+                  sizes="50vw"
                   className="object-cover"
                 />
               </div>
