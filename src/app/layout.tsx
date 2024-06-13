@@ -2,12 +2,12 @@ import type { Metadata } from 'next';
 import { Manrope as FontSans } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
-import { Header } from '@/components/page-header';
 import { Toaster } from '@/components/ui/toaster';
 import { NextSSRPlugin } from '@uploadthing/react/next-ssr-plugin';
 import { extractRouterConfig } from 'uploadthing/server';
 import { ourFileRouter } from './api/uploadthing/core';
 import Footer from '@/components/page-footer';
+import { Header } from '@/components/header/page-header';
 
 const fontSans = FontSans({
   subsets: ['latin'],

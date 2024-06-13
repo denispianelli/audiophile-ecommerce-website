@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { Button } from '../ui/button';
+import Image from 'next/image';
+import heroMobile from '../../../public/assets/home/mobile/image-header.jpg';
 
 export default function Hero() {
   return (
@@ -14,10 +16,13 @@ export default function Hero() {
             srcSet="/assets/home/tablet/image-header.jpg"
             media="(min-width: 768px)"
           />
-          <img
-            className="h-full w-full"
-            src="/assets/home/mobile/image-header.jpg"
+          <Image
             alt="header"
+            src={heroMobile}
+            placeholder="blur"
+            sizes="100vw"
+            className="h-auto w-full"
+            priority
           />
         </picture>
         <div className="absolute left-1/2 top-[33%] w-[328px] -translate-x-1/2 text-center md:w-[379px] xl:w-[1110px] xl:pr-[731px] xl:text-start">

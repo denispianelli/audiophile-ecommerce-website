@@ -1,3 +1,6 @@
+import Image from 'next/image';
+import bestGear from '../../public/assets/shared/mobile/image-best-gear.jpg';
+
 export default function Editorial() {
   return (
     <section className="mb-[120px] w-full md:mb-[96px] xl:mx-auto xl:mb-[200px] xl:w-[1110px]">
@@ -11,10 +14,10 @@ export default function Editorial() {
             srcSet="/assets/shared/tablet/image-best-gear.jpg"
             media="(min-width: 768px)"
           />
-          <img
-            className="h-full w-full rounded-lg"
-            src="/assets/shared/mobile/image-best-gear.jpg"
-            alt="header"
+          <Image
+            alt="best-gear"
+            src={bestGear}
+            className="h-auto w-full rounded-lg"
           />
         </picture>
         <div className="xl:col-start-1 xl:row-start-1 xl:py-[146px] xl:pr-[125px]">

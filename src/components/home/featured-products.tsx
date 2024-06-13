@@ -1,6 +1,10 @@
 import Link from 'next/link';
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
+import Image from 'next/image';
+import zx9SpeakerMobile from '../../../public/assets/home/mobile/image-speaker-zx9.png';
+import zx7SpeakerMobile from '../../../public/assets/home/mobile/image-speaker-zx7.jpg';
+import yx1EarphonesMobile from '../../../public/assets/home/mobile/image-earphones-yx1.jpg';
 
 export default function FeaturedProducts() {
   return (
@@ -16,11 +20,7 @@ export default function FeaturedProducts() {
               srcSet="/assets/home/tablet/image-speaker-zx9.png"
               media="(min-width: 768px)"
             />
-            <img
-              className="h-full w-full"
-              src="/assets/home/mobile/image-speaker-zx9.png"
-              alt="header"
-            />
+            <Image alt="speaker-zx9" src={zx9SpeakerMobile} />
           </picture>
         </div>
         <div className="absolute top-5 z-0 h-[279px] w-[279px] rounded-full border border-white/30 md:-top-[70px] md:h-[472px] md:w-[472px] xl:left-[100px] xl:top-[200px]" />
@@ -55,10 +55,11 @@ export default function FeaturedProducts() {
               srcSet="/assets/home/tablet/image-speaker-zx7.jpg"
               media="(min-width: 768px)"
             />
-            <img
-              className="h-full w-full rounded-lg"
-              src="/assets/home/mobile/image-speaker-zx7.jpg"
-              alt="header"
+            <Image
+              alt="speaker-zx7"
+              src={zx7SpeakerMobile}
+              className="h-auto w-full rounded-lg"
+              priority
             />
           </picture>
         </div>
@@ -83,10 +84,11 @@ export default function FeaturedProducts() {
               srcSet="/assets/home/tablet/image-earphones-yx1.jpg"
               media="(min-width: 768px)"
             />
-            <img
-              className="h-full w-full rounded-lg"
-              src="/assets/home/mobile/image-earphones-yx1.jpg"
-              alt="header"
+            <Image
+              alt="earphones-yx1"
+              src={yx1EarphonesMobile}
+              className="h-auto w-full rounded-lg"
+              priority
             />
           </picture>
         </div>

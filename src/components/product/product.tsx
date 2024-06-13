@@ -154,42 +154,50 @@ export function ProductGallery({
 }
 
 export function ProductRelated({ relatedProducts }: { relatedProducts: any }) {
-  console.log(relatedProducts);
   return (
     <>
       <h3 className="mb-6 text-center text-[24px] font-bold uppercase md:text-[32px]">
         you may also like
       </h3>
       <div className="grid gap-[56px] md:grid-cols-3 md:gap-[11px]">
-        {relatedProducts.map((relatedProduct: any) => (
-          <div key={uuidv4()} className="grid justify-items-center gap-8">
-            <picture>
-              <source
-                srcSet={`/assets/shared/desktop/image-${relatedProduct.other_product.slug}.jpg`}
-                media="(min-width: 1280px)"
-              />
-              <source
-                srcSet={`/assets/shared/tablet/image-${relatedProduct.other_product.slug}.jpg`}
-                media="(min-width: 768px)"
-              />
-              <img
-                srcSet={`/assets/shared/mobile/image-${relatedProduct.other_product.slug}.jpg`}
-                alt={relatedProduct.other_product.name}
-                className="rounded-lg"
-              />
-            </picture>
-            <h4 className="text-center text-[24px] font-bold uppercase tracking-[1.71px]">
-              {relatedProduct.other_product.name}
-            </h4>
-            <Button>
-              <Link
-                href={`/${relatedProduct.other_product.slug.split('-')[relatedProduct.other_product.slug.split('-').length - 1]}/${relatedProduct.other_product.slug}`}
-              >
-                see product
-              </Link>
-            </Button>
-          </div>
-        ))}
+        {relatedProducts.map((relatedProduct: any) => {
+          let categoryName =
+            relatedProduct.other_product.slug.split('-')[
+              relatedProduct.other_product.slug.split('-').length - 1
+            ];
+          if (categoryName === 'speaker') categoryName = 'speakers';
+          console.log('{relatedProducts.map ~ slug:', categoryName);
+
+          return (
+            <div key={uuidv4()} className="grid justify-items-center gap-8">
+              <picture>
+                <source
+                  srcSet={`/assets/shared/desktop/image-${relatedProduct.other_product.slug}.jpg`}
+                  media="(min-width: 1280px)"
+                />
+                <source
+                  srcSet={`/assets/shared/tablet/image-${relatedProduct.other_product.slug}.jpg`}
+                  media="(min-width: 768px)"
+                />
+                <img
+                  srcSet={`/assets/shared/mobile/image-${relatedProduct.other_product.slug}.jpg`}
+                  alt={relatedProduct.other_product.name}
+                  className="rounded-lg"
+                />
+              </picture>
+              <h4 className="text-center text-[24px] font-bold uppercase tracking-[1.71px]">
+                {relatedProduct.other_product.name}
+              </h4>
+              <Button>
+                <Link
+                  href={`/${categoryName}/${relatedProduct.other_product.slug}`}
+                >
+                  see product
+                </Link>
+              </Button>
+            </div>
+          );
+        })}
       </div>
     </>
   );

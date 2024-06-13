@@ -19,8 +19,9 @@ export default function Categories() {
                   src={`/assets/shared/desktop/image-category-thumbnail-${category}.png`}
                   alt={category}
                   fill
-                  sizes="50vw"
+                  sizes="20vw"
                   className="object-cover"
+                  priority
                 />
               </div>
               <h3 className="text-[15px] font-bold uppercase tracking-[1.07px]">

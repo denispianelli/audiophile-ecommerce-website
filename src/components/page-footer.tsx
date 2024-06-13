@@ -17,22 +17,22 @@ export default function Footer() {
         <nav className="mt-12 text-center text-[13px] font-bold uppercase leading-[25px] tracking-[2px] text-white md:mt-8 xl:m-0">
           <ul className="grid gap-4 md:flex">
             <li>
-              <Link className="hover:text-primary" href="#">
+              <Link className="hover:text-primary" href="/">
                 home
               </Link>
             </li>
             <li>
-              <Link className="hover:text-primary" href="#">
+              <Link className="hover:text-primary" href="/headphones">
                 headphones
               </Link>
             </li>
             <li>
-              <Link className="hover:text-primary" href="#">
+              <Link className="hover:text-primary" href="/speakers">
                 speakers
               </Link>
             </li>
             <li>
-              <Link className="hover:text-primary" href="#">
+              <Link className="hover:text-primary" href="/earphones">
                 earphones
               </Link>
             </li>

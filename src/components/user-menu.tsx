@@ -52,7 +52,8 @@ export async function UserMenu() {
           }}
         >
           <DropdownMenuItem>
-            <LogOut className="mr-2 h-4 w-4" /> <button>Logout</button>
+            <LogOut className="mr-2 h-4 w-4" />
+            <button>Logout</button>
           </DropdownMenuItem>
         </form>
       </DropdownMenuContent>

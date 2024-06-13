@@ -145,8 +145,8 @@ async function seedIncludes(client) {
 }
 
 async function seedOtherProducts(client) {
-	try {
-		const insertedOtherProducts = await client.sql`
+  try {
+    const insertedOtherProducts = await client.sql`
 		INSERT INTO other_products (id, slug, name, image_id)
 		VALUES 
 		(${uuidv4()}, 'xx99-mark-one-headphones', 'XX99 Mark I', 3),
@@ -154,18 +154,17 @@ async function seedOtherProducts(client) {
 		(${uuidv4()}, 'zx9-speaker', 'ZX9 Speaker', 6),
 		(${uuidv4()}, 'xx99-mark-two-headphones', 'XX99 Mark II', 4),
 		(${uuidv4()}, 'zx7-speaker', 'ZX7 Speaker', 5)
-		`
+		`;
 
-		console.log(insertedOtherProducts);
+    console.log(insertedOtherProducts);
 
-		return {
-			otherProducts: insertedOtherProducts,
-		};
-
-	} catch (error) {
-		console.error('Error inserting other products', error);
-		throw error;
-	}
+    return {
+      otherProducts: insertedOtherProducts,
+    };
+  } catch (error) {
+    console.error('Error inserting other products', error);
+    throw error;
+  }
 }
 
 async function main() {
@@ -176,7 +175,7 @@ async function main() {
   await seedProducts(client);
   await seedGalleryImages(client);
   await seedIncludes(client);
-	await seedOtherProducts(client);
+  await seedOtherProducts(client);
 
   await client.end();
 }
