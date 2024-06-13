@@ -3,14 +3,11 @@ import { Manrope as FontSans } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { Header } from '@/components/page-header';
-import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
 import { NextSSRPlugin } from '@uploadthing/react/next-ssr-plugin';
 import { extractRouterConfig } from 'uploadthing/server';
 import { ourFileRouter } from './api/uploadthing/core';
 import Footer from '@/components/page-footer';
-import Editorial from '@/components/editorial';
-import Categories from '@/components/home/categories';
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -37,16 +34,10 @@ export default function RootLayout({
         )}
       >
         <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
-        <ThemeProvider
-          attribute="class"
-          storageKey="theme"
-          disableTransitionOnChange
-        >
-          <Header />
-          {children}
-          <Footer />
-          <Toaster />
-        </ThemeProvider>
+        <Header />
+        {children}
+        <Footer />
+        <Toaster />
       </body>
     </html>
   );
