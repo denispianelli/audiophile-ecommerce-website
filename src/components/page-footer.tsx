@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="relative w-screen bg-footer md:px-10">
       <div className="mx-auto xl:relative xl:w-[1110px]">
-        <div className="xl:left- absolute -top-[1px] left-1/2 h-1 w-[101px] -translate-x-1/2 bg-primary md:left-10 md:translate-x-0" />
+        <div className="absolute -top-[1px] left-1/2 h-1 w-[101px] -translate-x-1/2 bg-primary md:left-10 md:translate-x-0 xl:left-0" />
       </div>
       <div className="flex flex-col items-center py-[52px] md:items-start md:pt-[60px] xl:mx-auto xl:w-[1110px] xl:flex-row xl:justify-between">
         <Image

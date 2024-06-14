@@ -3,10 +3,15 @@ import clsx from 'clsx';
 import { v4 as uuidv4 } from 'uuid';
 import { Button } from '../ui/button';
 import Link from 'next/link';
+import { currencyFormatter } from '@/services/currency-formatter';
 
 export function ProductNew({ isNew }: { isNew: boolean }) {
   return (
-    <>{isNew && <p className="text-overline md:text-[12px]">new product</p>}</>
+    <>
+      {isNew && (
+        <p className="text-overline md:mb-4 md:text-[12px]">new product</p>
+      )}
+    </>
   );
 }
 
@@ -21,7 +26,7 @@ export function ProductTitle({
 }) {
   return (
     <h2
-      className={clsx('h4 xl:px-0 xl:text-start', {
+      className={clsx('h4 md:h2 md:mb-8 xl:px-0 xl:text-start', {
         'text-center': position === 'center',
         'text-right': position === 'right',
       })}
@@ -40,7 +45,7 @@ export function ProductDescription({
 }) {
   return (
     <p
-      className={clsx('text-body text-black/50 xl:px-0 xl:text-start', {
+      className={clsx('text-body text-black/50 md:mb-6 xl:px-0 xl:text-start', {
         'text-center': position === 'center',
         'text-right': position === 'right',
       })}
@@ -51,13 +56,7 @@ export function ProductDescription({
 }
 
 export function ProductPrice({ price }: { price: number }) {
-  const formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    maximumFractionDigits: 0,
-  });
-
-  const formattedPrice = formatter.format(price);
+  const formattedPrice = currencyFormatter.format(price);
   const dollarSign = formattedPrice.slice(0, 1);
   const priceValue = formattedPrice.slice(1);
   return (
@@ -85,7 +84,7 @@ export function ProductFeatures({ features }: { features: string }) {
 
 export function ProductsInclude({ includes }: { includes: any }) {
   return (
-    <div className="md:flex">
+    <div className="md:flex xl:flex-col">
       <h3 className="mb-6 text-[24px] font-bold uppercase md:w-[50%] md:text-[32px]">
         in the box
       </h3>

@@ -5,10 +5,12 @@ import {
 } from '@/components/product/product';
 import { Button } from '@/components/ui/button';
 import { getProductsByCategory } from '@/lib/data';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default async function Category({ category }: { category: string }) {
   const products = await getProductsByCategory(category);
+  console.log('Category ~ products:', products);
 
   return (
     <>
@@ -19,17 +21,20 @@ export default async function Category({ category }: { category: string }) {
         >
           <picture className="xl:w-1/2">
             <source
-              srcSet={product.categoryImage?.desktop}
+              srcSet={`${product.categoryImage?.desktop.slice(1)}`}
               media="(min-width: 1280px)"
             />
             <source
-              srcSet={product.categoryImage?.tablet}
+              srcSet={`${product.categoryImage?.tablet.slice(1)}`}
               media="(min-width: 768px)"
             />
-            <img
-              src={product.categoryImage?.mobile}
+            <Image
+              src={`${product.categoryImage?.mobile.slice(1)}`}
+              width={689}
+              height={352}
               alt={product.name}
-              className="rounded-lg"
+              className="h-auto w-full rounded-lg"
+              priority
             />
           </picture>
           <div

@@ -13,7 +13,11 @@ export default function UserAuth() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant={'ghost'} size={'icon'} className="text-white/100">
+        <Button
+          variant={'ghost'}
+          size={'icon'}
+          className="hidden text-white/100 hover:text-primary md:block"
+        >
           <User />
         </Button>
       </DropdownMenuTrigger>

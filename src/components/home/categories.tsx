@@ -20,7 +20,7 @@ export default function Categories() {
                   alt={category}
                   fill
                   sizes="20vw"
-                  className="object-cover"
+                  className="h-auto object-cover"
                   priority
                 />
               </div>

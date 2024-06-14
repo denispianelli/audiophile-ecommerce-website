@@ -11,7 +11,7 @@ export default function Hamburger() {
           <span className="sr-only">Toggle navigation menu</span>
         </div>
       </SheetTrigger>
-      <SheetContent side="top" className="mt-[91px]">
+      <SheetContent side="top" className="mt-[91px] max-h-[80vh]">
         <MobileNav />
       </SheetContent>
     </Sheet>

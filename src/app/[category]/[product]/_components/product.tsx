@@ -13,10 +13,17 @@ import {
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { useAppDispatch, useAppSelector } from '@/hooks';
+import { addItem, selectCartItems } from '@/features/cart/cartSlice';
+import { useToast } from '@/components/ui/use-toast';
 
 export default function Product({ product }: { product: any }) {
   const [value, setValue] = useState(1);
   const router = useRouter();
+  const dispatch = useAppDispatch();
+  const { toast } = useToast();
+  const cart = useAppSelector(selectCartItems);
+
   const handleBackClick = () => {
     router.back();
   };
@@ -33,7 +40,31 @@ export default function Product({ product }: { product: any }) {
     }
   };
 
-  // console.log('product', product.other_products);
+  const handleAddToCart = () => {
+    const existingItem = cart.find((item) => item.id === product.id);
+    const totalQuantity = existingItem ? existingItem.quantity + value : value;
+    if (totalQuantity > 99) {
+      toast({
+        title: 'Cannot add item to cart',
+        variant: 'destructive',
+        description: `Adding ${value} ${product.name} would exceed the maximum quantity of 99`,
+      });
+    } else {
+      dispatch(
+        addItem({
+          id: product.id,
+          name: product.name,
+          quantity: value,
+          image: product.image.mobile,
+          price: product.price,
+        }),
+      );
+      toast({
+        title: 'Item added to cart',
+        description: `${value} ${product.name} added to cart`,
+      });
+    }
+  };
 
   return (
     <article className="grid gap-[88px] xl:mx-auto xl:w-[1110px]">
@@ -87,17 +118,19 @@ export default function Product({ product }: { product: any }) {
                   +
                 </button>
               </div>
-              <Button>add to cart</Button>
+              <Button onClick={handleAddToCart}>add to cart</Button>
             </div>
           </div>
         </div>
       </section>
-      <section>
-        <ProductFeatures features={product.features} />
-      </section>
-      <section>
-        <ProductsInclude includes={product.item_includes} />
-      </section>
+      <div className="flex flex-col gap-[64px] md:gap-[96px] xl:flex-row">
+        <section className="xl:w-[60%]">
+          <ProductFeatures features={product.features} />
+        </section>
+        <section className="xl:w-[40%]">
+          <ProductsInclude includes={product.item_includes} />
+        </section>
+      </div>
       <section className="xl:mx-auto xl:w-[1110px]">
         <ProductGallery images={product.GalleryImage} name={product.name} />
       </section>
