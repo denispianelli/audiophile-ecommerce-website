@@ -8,7 +8,7 @@ export default function MobileNav() {
   const categories = ['headphones', 'speakers', 'earphones'];
 
   return (
-    <nav className="text-md grid gap-[68px] pt-[44px] font-medium">
+    <nav className="text-md grid gap-[68px] pt-[44px] font-medium md:flex md:justify-center md:gap-[10px] md:pb-[50px]">
       {categories.map((category) => (
         <SheetClose key={category} asChild>
           <Link key={category} href={`/${category}`}>

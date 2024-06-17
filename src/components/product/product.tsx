@@ -165,7 +165,6 @@ export function ProductRelated({ relatedProducts }: { relatedProducts: any }) {
               relatedProduct.other_product.slug.split('-').length - 1
             ];
           if (categoryName === 'speaker') categoryName = 'speakers';
-          console.log('{relatedProducts.map ~ slug:', categoryName);
 
           return (
             <div key={uuidv4()} className="grid justify-items-center gap-8">

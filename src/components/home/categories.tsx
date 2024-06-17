@@ -6,7 +6,7 @@ import Link from 'next/link';
 export default function Categories() {
   const categories = ['headphones', 'speakers', 'earphones'];
   return (
-    <section className="mt-[52px] grid w-full gap-[68px] md:grid-cols-3 md:gap-[10px] xl:mx-auto xl:w-[1110px] xl:gap-[30px]">
+    <section className="mt-[172px] grid w-full gap-[68px] md:grid-cols-3 md:gap-[10px] xl:mx-auto xl:w-[1110px] xl:gap-[30px]">
       {categories.map((category) => (
         <Link key={category} href={`/${category}`}>
           <Card

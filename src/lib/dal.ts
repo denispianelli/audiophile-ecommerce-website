@@ -28,7 +28,7 @@ export const getUser = cache(async () => {
   }
 });
 
-export const verifySession = cache(async () => {
+export const verifySession = async () => {
   const session = await auth();
 
   if (!session?.user) {
@@ -36,4 +36,4 @@ export const verifySession = cache(async () => {
   }
 
   return { isAuth: true, userId: session?.user?.id };
-});
+};

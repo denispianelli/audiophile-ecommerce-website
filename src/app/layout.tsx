@@ -8,7 +8,7 @@ import { extractRouterConfig } from 'uploadthing/server';
 import { ourFileRouter } from './api/uploadthing/core';
 import Footer from '@/components/page-footer';
 import { Header } from '@/components/header/page-header';
-import ReduxProvider from '@/redux-provider';
+import StoreProvider from '@/store-provider';
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -34,13 +34,13 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-        <ReduxProvider>
+        <StoreProvider>
           <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
           <Header />
           {children}
           <Footer />
           <Toaster />
-        </ReduxProvider>
+        </StoreProvider>
       </body>
     </html>
   );

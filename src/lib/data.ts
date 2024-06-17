@@ -1,4 +1,5 @@
 import db from '@/db/prisma';
+import { promise } from 'zod';
 
 export async function getAllProducts() {
   try {
@@ -37,6 +38,8 @@ export async function getProductsByCategory(category: string) {
 }
 
 export async function getProductBySlug(slug: string) {
+  // await new Promise((resolve) => setTimeout(resolve, 3000));
+
   try {
     const product = await db.product.findUnique({
       where: {

@@ -1,5 +1,5 @@
+import { RootState } from '@/lib/store';
 import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../../store';
 
 export interface CartItem {
   id: number;
@@ -14,9 +14,7 @@ interface CartState {
 }
 
 const initialState: CartState = {
-  items: JSON.parse(
-    (typeof window !== 'undefined' && localStorage.getItem('cart')) || '[]',
-  ),
+  items: [],
 };
 
 export const selectTotalItems = createSelector(
@@ -28,6 +26,9 @@ export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
+    setItems: (state, action: PayloadAction<CartItem[]>) => {
+      state.items = action.payload;
+    },
     addItem: (state, action: PayloadAction<CartItem>) => {
       const existingItem = state.items.find(
         (item) => item.id === action.payload.id,
@@ -80,8 +81,14 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { addItem, incrementItem, decrementItem, removeItem, removeAll } =
-  cartSlice.actions;
+export const {
+  setItems,
+  addItem,
+  incrementItem,
+  decrementItem,
+  removeItem,
+  removeAll,
+} = cartSlice.actions;
 
 export const selectCartItems = (state: RootState) =>
   (state as { cart: CartState }).cart.items;
