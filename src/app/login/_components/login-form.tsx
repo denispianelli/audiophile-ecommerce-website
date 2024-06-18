@@ -20,6 +20,7 @@ import { useForm, useFormState } from 'react-hook-form';
 
 import { useToast } from '@/components/ui/use-toast';
 import OAuthProviders from '@/components/oauth-providers';
+import headphonesPic from '../../../..//public/assets/login/pexels-chuck-3587478.jpg';
 
 const LoginFormSchema = z
   .object({
@@ -143,13 +144,14 @@ export default function LoginForm() {
           </div>
         </div>
       </div>
-      <div className="hidden bg-muted lg:block">
+      <div className="relative hidden bg-muted lg:block">
         <Image
-          src="/placeholder.svg"
-          alt="Image"
-          width="1920"
-          height="1080"
-          className="h-[calc(100vh-64px)] w-full object-cover dark:brightness-[0.2] dark:grayscale"
+          src={headphonesPic}
+          alt="headphones"
+          fill
+          sizes="50vw"
+          className="h-auto w-full object-cover object-center"
+          priority
         />
       </div>
     </div>

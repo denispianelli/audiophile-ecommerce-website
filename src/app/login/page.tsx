@@ -12,7 +12,7 @@ export default async function Page() {
   return (
     <>
       <div className="h-[90px] w-full bg-black md:h-[97px]"></div>
-      <main>
+      <main className="h-[calc(100vh-97px)]">
         <LoginForm />
       </main>
     </>
