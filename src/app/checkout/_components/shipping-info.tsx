@@ -6,8 +6,8 @@ interface ShippingInfoProps {
 }
 
 export const ShippingInfo: React.FC<ShippingInfoProps> = ({ control }) => (
-  <div className="grid gap-6">
-    <div className="grid gap-4">
+  <div className="grid gap-4">
+    <div className="grid gap-6">
       <p className="subtitle">Shipping Info</p>
       <FormFieldWrapper
         control={control}
@@ -15,24 +15,26 @@ export const ShippingInfo: React.FC<ShippingInfoProps> = ({ control }) => (
         label="Your Address"
         placeholder="1137 Williams Avenue"
       />
+      <div className="grid gap-6 md:grid-cols-2">
+        <FormFieldWrapper
+          control={control}
+          name="zip"
+          label="ZIP Code"
+          placeholder="10001"
+        />
+        <FormFieldWrapper
+          control={control}
+          name="city"
+          label="City"
+          placeholder="New York"
+        />
+        <FormFieldWrapper
+          control={control}
+          name="country"
+          label="Country"
+          placeholder="United States"
+        />
+      </div>
     </div>
-    <FormFieldWrapper
-      control={control}
-      name="zip"
-      label="ZIP Code"
-      placeholder="10001"
-    />
-    <FormFieldWrapper
-      control={control}
-      name="city"
-      label="City"
-      placeholder="New York"
-    />
-    <FormFieldWrapper
-      control={control}
-      name="country"
-      label="Country"
-      placeholder="United States"
-    />
   </div>
 );

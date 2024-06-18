@@ -18,6 +18,7 @@ interface FormFieldWrapperProps {
   label: string;
   placeholder: string;
   disabled?: boolean;
+  className?: string;
 }
 
 const FormFieldWrapper: React.FC<FormFieldWrapperProps> = ({
@@ -26,12 +27,13 @@ const FormFieldWrapper: React.FC<FormFieldWrapperProps> = ({
   label,
   placeholder,
   disabled,
+  className,
 }) => (
   <FormField
     control={control}
     name={name}
     render={({ field }) => (
-      <FormItem>
+      <FormItem className={className}>
         <div className="flex justify-between">
           <FormLabel>{label}</FormLabel>
           <FormMessage />

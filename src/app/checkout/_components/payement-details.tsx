@@ -20,13 +20,13 @@ export const PaymentDetails: React.FC<PaymentDetailsProps> = ({
   paymentMethod,
 }) => (
   <div className="grid gap-6">
-    <div className="grid gap-4">
+    <div className="grid gap-4 ">
       <p className="subtitle">Payment Details</p>
       <FormField
         control={control}
         name="payment"
         render={({ field }) => (
-          <FormItem>
+          <FormItem className="gap-6 md:grid md:grid-cols-2">
             <FormLabel>Payment Method</FormLabel>
             <FormControl>
               <RadioGroup onValueChange={field.onChange} defaultValue="e-money">
@@ -66,19 +66,23 @@ export const PaymentDetails: React.FC<PaymentDetailsProps> = ({
         )}
       />
     </div>
-    <FormFieldWrapper
-      control={control}
-      name="e-money-number"
-      label="e-Money Number"
-      placeholder="238521993"
-      disabled={paymentMethod !== 'e-money'}
-    />
-    <FormFieldWrapper
-      control={control}
-      name="e-money-pin"
-      label="e-Money Pin"
-      placeholder="6891"
-      disabled={paymentMethod !== 'e-money'}
-    />
+    <div className="grid gap-6 md:grid-cols-2">
+      <FormFieldWrapper
+        control={control}
+        name="e-money-number"
+        label="e-Money Number"
+        placeholder="238521993"
+        disabled={paymentMethod !== 'e-money'}
+        className={paymentMethod === 'e-money' ? 'block' : 'hidden'}
+      />
+      <FormFieldWrapper
+        control={control}
+        name="e-money-pin"
+        label="e-Money Pin"
+        placeholder="6891"
+        disabled={paymentMethod !== 'e-money'}
+        className={paymentMethod === 'e-money' ? 'block' : 'hidden'}
+      />
+    </div>
   </div>
 );

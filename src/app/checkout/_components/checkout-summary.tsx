@@ -1,5 +1,15 @@
 'use client';
 
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from '@/components/ui/alert-dialog';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { selectCartItems } from '@/lib/features/cart/cartSlice';
@@ -7,9 +17,14 @@ import { useAppSelector } from '@/lib/hooks';
 import { cn } from '@/lib/utils';
 import { currencyFormatter } from '@/services/currency-formatter';
 import Image from 'next/image';
-import React from 'react';
+import IconOrderConfirmation from './icon-order-confirmation';
+import { useState } from 'react';
 
-export default function CheckoutSummary() {
+export default function CheckoutSummary({
+  paymentMethod,
+}: {
+  paymentMethod: string;
+}) {
   const cart = useAppSelector(selectCartItems);
   const totalPrice = cart.reduce(
     (acc, item) => acc + item.price * item.quantity,
@@ -20,9 +35,9 @@ export default function CheckoutSummary() {
   const grandTotal = totalPrice + shipping;
 
   return (
-    <Card className="bg-white">
-      <CardHeader>
-        <CardTitle className="text-[28px] font-bold uppercase tracking-[1px]">
+    <Card className="bg-white xl:self-start">
+      <CardHeader className="xl:pb-2">
+        <CardTitle className="text-[28px] font-bold uppercase tracking-[1px] xl:text-[18px]">
           summary
         </CardTitle>
       </CardHeader>
@@ -37,18 +52,20 @@ export default function CheckoutSummary() {
             return (
               <div
                 key={item.id}
-                className="mt-6 grid grid-cols-[64px,75px,86px] place-items-center justify-between gap-4 md:grid-cols-[64px,100px,86px,20px]"
+                className="mt-6 flex items-center justify-between gap-4"
               >
-                <Image
-                  src={item.image.slice(1)}
-                  alt={item.name}
-                  width={64}
-                  height={64}
-                  className="rounded-lg"
-                />
-                <div className="flex flex-col justify-self-start">
-                  <p className="text-[15px] font-bold text-black">{name}</p>
-                  <p className="text-[14px] font-bold text-black/50">{`${dollarSign} ${priceValue}`}</p>
+                <div className="flex items-center gap-6">
+                  <Image
+                    src={item.image.slice(1)}
+                    alt={item.name}
+                    width={64}
+                    height={64}
+                    className="rounded-lg"
+                  />
+                  <div className="flex flex-col justify-self-start">
+                    <p className="text-[15px] font-bold text-black">{name}</p>
+                    <p className="text-[14px] font-bold text-black/50">{`${dollarSign} ${priceValue}`}</p>
+                  </div>
                 </div>
                 <p className="justify-self-end text-[15px] font-bold text-black/50">
                   {'x' + item.quantity}
@@ -62,12 +79,13 @@ export default function CheckoutSummary() {
           <CheckoutSummaryTax taxes={taxes} />
         </div>
         <CheckoutSummaryGrandTotal grandTotal={grandTotal} />
+
         <Button
           disabled={cart.length === 0}
           className="mt-8 w-full"
           type="submit"
         >
-          continue & pay
+          {paymentMethod === 'e-money' ? 'pay & continue' : 'continue'}
         </Button>
       </CardContent>
     </Card>

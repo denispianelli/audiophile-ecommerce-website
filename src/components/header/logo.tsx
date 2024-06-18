@@ -1,7 +1,7 @@
 export default function Logo() {
   return (
     <svg
-      className="group absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:left-[97px] md:ml-10 lg:left-0 lg:order-1 lg:ml-0 lg:translate-x-0"
+      className="group absolute left-14 top-1/2 -translate-y-1/2 md:left-[97px] md:ml-10 lg:left-0 lg:order-1 lg:ml-0 lg:translate-x-0"
       width="143"
       height="25"
       xmlns="http://www.w3.org/2000/svg"

@@ -16,7 +16,7 @@ export default function UserAuth() {
         <Button
           variant={'ghost'}
           size={'icon'}
-          className="hidden text-white/100 hover:text-primary md:block"
+          className="text-white/100 hover:text-primary md:block"
         >
           <User />
         </Button>

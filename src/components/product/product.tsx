@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { Button } from '../ui/button';
 import Link from 'next/link';
 import { currencyFormatter } from '@/services/currency-formatter';
+import Image from 'next/image';
 
 export function ProductNew({ isNew }: { isNew: boolean }) {
   return (
@@ -122,7 +123,7 @@ export function ProductGallery({
 }) {
   return (
     <div
-      className="grid gap-[20px] md:grid-flow-col md:grid-cols-[40%,auto]
+      className="grid gap-[20px] md:grid-flow-col md:grid-cols-[40.9%,auto]
 		md:grid-rows-2"
     >
       {images.map((image, index) => {
@@ -140,10 +141,13 @@ export function ProductGallery({
               media="(min-width: 1280px)"
             />
             <source srcSet={image.tablet.slice(1)} media="(min-width: 768px)" />
-            <img
+            <Image
               src={image.mobile.slice(1)}
               alt={name}
-              className="rounded-lg"
+              width={327}
+              height={368}
+              className="h-auto w-full rounded-lg"
+              priority
             />
           </picture>
         );
@@ -168,7 +172,7 @@ export function ProductRelated({ relatedProducts }: { relatedProducts: any }) {
 
           return (
             <div key={uuidv4()} className="grid justify-items-center gap-8">
-              <picture>
+              <picture className="w-full">
                 <source
                   srcSet={`/assets/shared/desktop/image-${relatedProduct.other_product.slug}.jpg`}
                   media="(min-width: 1280px)"
@@ -177,10 +181,13 @@ export function ProductRelated({ relatedProducts }: { relatedProducts: any }) {
                   srcSet={`/assets/shared/tablet/image-${relatedProduct.other_product.slug}.jpg`}
                   media="(min-width: 768px)"
                 />
-                <img
-                  srcSet={`/assets/shared/mobile/image-${relatedProduct.other_product.slug}.jpg`}
+                <Image
+                  src={`/assets/shared/mobile/image-${relatedProduct.other_product.slug}.jpg`}
                   alt={relatedProduct.other_product.name}
-                  className="rounded-lg"
+                  width={327}
+                  height={120}
+                  className="h-auto w-full rounded-lg"
+                  priority
                 />
               </picture>
               <h4 className="text-center text-[24px] font-bold uppercase tracking-[1.71px]">

@@ -16,6 +16,7 @@ import { useState } from 'react';
 import { useToast } from '@/components/ui/use-toast';
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import { addItem, selectCartItems } from '@/lib/features/cart/cartSlice';
+import Image from 'next/image';
 
 export default function Product({ product }: { product: any }) {
   const [value, setValue] = useState(1);
@@ -89,10 +90,13 @@ export default function Product({ product }: { product: any }) {
                   srcSet={product.image.tablet.slice(1)}
                   media="(min-width: 768px)"
                 />
-                <img
+                <Image
                   src={product.image.mobile.slice(1)}
                   alt={product.name}
-                  className="rounded-lg"
+                  width={432}
+                  height={432}
+                  className="h-auto w-full rounded-lg"
+                  priority
                 />
               </picture>
               <div className="grid gap-6 md:flex md:w-[82%] md:flex-col md:justify-center">
