@@ -1,5 +1,4 @@
 import Editorial from '@/components/editorial';
-import { Header } from '@/components/header/page-header';
 import Categories from '@/components/home/categories';
 import { notFound } from 'next/navigation';
 
