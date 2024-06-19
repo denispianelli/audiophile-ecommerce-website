@@ -1,150 +1,75 @@
-# 🚀 Next.js Tailwind Prisma NextAuth Shadcn/ui Template
+# Frontend Mentor - Audiophile e-commerce website solution
 
-This template provides a robust starting point for building full-stack web
-applications with **Next.js 14** using the App Router, **Tailwind CSS**,
-**Prisma**, **NextAuth.js**, and **Shadcn/ui**, incorporating an authentication
-system.
+This is a solution to the [Audiophile e-commerce website challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/audiophile-ecommerce-website-C8cuSd_wx). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## [Live Demo](https://nextjs-tailwind-prisma-nextauth-template.vercel.app)
+## Table of contents
 
-## 🔥 **Template Features:**
+- [Frontend Mentor - Audiophile e-commerce website solution](#frontend-mentor---audiophile-e-commerce-website-solution)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+    - [The challenge](#the-challenge)
+    - [Screenshots](#screenshots)
+      - [Desktop](#desktop)
+      - [Tablet](#tablet)
+      - [Smartphone](#smartphone)
+    - [Link](#link)
+  - [My process](#my-process)
+    - [Built with](#built-with)
+  - [Author](#author)
 
-- **Light/Dark Mode:** Switch between light and dark mode seamlessly for optimal readability and user experience.
+## Overview
 
-- **Fully Responsive:** Enjoy a consistent user experience across devices with a fully responsive design that adapts to different screen sizes.
+### The challenge
 
-- **Authentication:**
+Users should be able to:
 
-  - **Login and Sign Up:** Easily register for a new account or log in with existing credentials.
-  - **OAuth Integration:** Authenticate using OAuth providers such as Google or GitHub for streamlined access.
-  - **Email Verification:** Verify email addresses through one-time passwords sent via email for added security.
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Add/Remove products from the cart
+- Edit product quantities in the cart
+- Fill in all fields in the checkout
+- Receive form validations if fields are missed or incorrect during checkout
+- See correct checkout totals depending on the products in the cart
+  - Shipping always adds $50 to the order
+  - VAT is calculated as 20% of the product total, excluding shipping
+- See an order confirmation modal after checking out with an order summary
+- **Bonus**: Keep track of what's in the cart, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app)
 
-- **Rate-Limited Verification:** Prevent abuse by limiting the number of verification code attempts to 5 per 10 minutes using Redis rate limiting.
+### Screenshots
 
-- **Forgot Password:** Recover access to your account with a reset password link sent directly to your email address.
+#### Desktop
 
-- **Account Settings:**
+![Desktop screenshot](./public/screenshots/desktop-screenshot.png)
 
-  Take control of your account with a settings page that allows you to:
+#### Tablet
 
-  - Update personal information.
-  - Change your profile picture.
-  - Change your password securely.
-  - Permanently delete your account if needed.
+![Tablet screenshot](./public/screenshots/tablet-screenshot.png)
 
-### 🔧 Customizable and Extendable
+#### Smartphone
 
-- Tailor the template to your specific needs and extend functionality with ease to create a personalized experience for your users.
-  Enhance your UI with [shadcn/ui](https://github.com/shadcn/ui)'s customizable
-  and reusable UI components.
-- Extend functionality by integrating additional features or third-party APIs.
+![Smartphone screenshot](./public/screenshots/smartphone-screenshot.png)
 
----
+### Link
 
-## 🛠️ Getting started
+- Live Site URL: [https://nextjs-audiophile-ecommerce-website.vercel.app/](https://nextjs-audiophile-ecommerce-website.vercel.app/)
 
-Follow these steps to set up the template and start building your application:
+## My process
 
-### **Create a New Project**
+### Built with
 
-```bash
- npx create-next-app -e https://github.com/denispianelli/nextjs-tailwind-prisma-nextauth-template my-app
-```
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- [Next.js](https://nextjs.org/) - React framework
+- [Tailwind CSS](https://tailwindcss.com/) - For styles
+- [Shadcn/ui](https://ui.shadcn.com/) - Component library
+- [Prisma](https://www.prisma.io/) - TypeScript ORM
+- [Auth.js](https://authjs.dev/) - For authentication
 
-### **Navigate to the Project Directory**
+## Author
 
-```bash
- cd my-app
-```
-
-### **Install Dependencies**
-
-```bash
-npm install
-```
-
-or
-
-```bash
-yarn install
-```
-
-### **Set Up Environment Variables and Deploy with Vercel 🚀**
-
-Duplicate the .env.example file and rename the copy to .env. Then, follow the instructions below to populate it with the necessary configuration.
-
-#### [Import your github repository to Vercel](https://vercel.com/new)
-
-#### Postgres
-
-- [Create a Vercel Postgres Database](https://vercel.com/docs/storage/vercel-postgres/quickstart#quickstart)
-
-#### Redis
-
-- [Create a Vercel KV Databse](https://vercel.com/docs/storage/vercel-kv/quickstart)
-
-#### NextAuth
-
-- Generate a secret string by running npx auth secret, for example: `AUTH_SECRET=LIjKViHdApuG+qsQk2KS/88iNrkC7seT8Eakd1MGLko=`.
-- [Creating an OAuth App in Github](https://authjs.dev/guides/configuring-github#registering-your-app)
-- [Creating an OAuth App in Google](https://developers.google.com/workspace/marketplace/configure-oauth-consent-screen?hl=fr)
-
-#### Nodemailer
-
-- Get the app password from your Gmail account:
-
-To get an App Password for your Gmail account, follow these detailed steps:
-
-Note: You’ll need to have two-step verification enabled on your Gmail account before generating an App Password. If you haven’t enabled it, do so first by going to your Google Account settings.
-
-1. Access Your Google Account:
-2. Start by visiting the [Google Account management page](https://myaccount.google.com).
-3. **Sign In:** Sign in to the Google Account associated with the Gmail address you want to use for sending emails programmatically.
-4. **Security:** In the left sidebar, click on “Security.”
-5. Scroll down to How you sign in to google and click on 2-step verificaiton.
-6. **App Passwords:** Scroll down to “App passwords.” Click on “App passwords.” You may be prompted to re-enter your password for security purposes.
-7. **App name:** Enter a custom name for this App Password. It helps you identify it later, so choose something related to the application or use case where you plan to use this App Password.
-8. **Create:** Click the “Create” button. Google will create a unique 16-character App Password for your custom application/device.
-
-Once generated, Google will display the App Password on the screen. Important:
-This is the only time you’ll see this password. Make sure to save it securely
-because you won’t be able to view it again. You’ll use this App Password in your
-application code to authenticate with Gmail’s SMTP server.
-
-For example:
-
-```js
-EMAIL_SERVER_PORT=465
-EMAIL_SERVER_SERVICE=gmail
-EMAIL_SERVER_USER=your.email@gmail.com
-EMAIL_SERVER_PASSWORD=your secret app password
-EMAIL_FROM=your.email@gmail.com
-```
-
-[_source_](https://medium.com/@y.mehnati_49486/how-to-send-an-email-from-your-gmail-account-with-nodemailer-837bf09a7628)
-
-#### Uploadthing
-
-- [Create an account](https://uploadthing.com/) if not already, go to your dashboard and copy paste your API key in the .env file.
-
-#### Prisma
-
-Run a migration to create your db tables
-
-```bash
- npx prisma migrate dev --name init
-
-```
-
-#### 🛠 Start building your application
-
----
-
-#### 🌟 **Star this Repository:**
-
-If you find these features useful, please consider starring the repository to
-show your support and help others discover it!
-
----
-
-#### 🚀 **Happy Coding!**
+- Website - [Denis Pianelli](https://www.denispianelli.dev/)
+- LinkedIn - [denis-pianelli](https://www.linkedin.com/in/denis-pianelli/)
