@@ -2,11 +2,17 @@ import Image from 'next/image';
 import { ButtonIcon } from '../ui/button-icon';
 import { Card, CardContent } from '../ui/card';
 import Link from 'next/link';
+import { cn } from '@/lib/utils';
 
-export default function Categories() {
+export default function Categories({ className }: { className?: string }) {
   const categories = ['headphones', 'speakers', 'earphones'];
   return (
-    <section className="mt-[172px] grid w-full gap-[68px] md:grid-cols-3 md:gap-[10px] xl:mx-auto xl:w-[1110px] xl:gap-[30px]">
+    <section
+      className={cn(
+        'mt-[42px] grid w-full gap-[68px] md:grid-cols-3 md:gap-[10px] xl:mx-auto xl:w-[1110px] xl:gap-[30px]',
+        className,
+      )}
+    >
       {categories.map((category) => (
         <Link key={category} href={`/${category}`}>
           <Card
