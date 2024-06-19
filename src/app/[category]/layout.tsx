@@ -19,7 +19,7 @@ export default function Layout({
     <>
       {children}
       <div className="grid gap-[120px] px-6 md:px-10">
-        <Categories />
+        <Categories className="mt-[172px]" />
         <Editorial />
       </div>
     </>
