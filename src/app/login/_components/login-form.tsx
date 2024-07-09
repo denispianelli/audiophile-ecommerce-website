@@ -148,6 +148,7 @@ export default function LoginForm() {
         <Image
           src={headphonesPic}
           alt="headphones"
+          placeholder="blur"
           fill
           sizes="50vw"
           className="h-auto w-full object-cover object-center"
