@@ -10,6 +10,8 @@ import GitHub from 'next-auth/providers/github';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import { User, PrismaClient } from '@prisma/client';
 
+import type { Adapter } from 'next-auth/adapters';
+
 globalThis.prisma ??= new PrismaClient();
 
 async function getUser(email: string): Promise<User | null> {
@@ -25,7 +27,7 @@ async function getUser(email: string): Promise<User | null> {
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   ...authConfig,
-  adapter: PrismaAdapter(globalThis.prisma),
+  adapter: PrismaAdapter(globalThis.prisma) as Adapter,
   session: { strategy: 'jwt' },
   providers: [
     Credentials({
